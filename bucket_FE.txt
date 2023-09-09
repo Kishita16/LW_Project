@@ -1,0 +1,7 @@
+<form action='http://15.206.159.32/cgi-bin/bucket.py?b1=b'>
+        Do you want to create a bucket? <input name='n' />
+
+        Enter the name of bucket <input name='b' />
+
+        <button >Create Bucket</button>
+</form>

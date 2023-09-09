@@ -1,0 +1,21 @@
+#!/usr/bin/python3
+
+import cgi
+from twilio.rest import Client
+
+print("Content-type: text/html")
+print()
+
+data = cgi.FieldStorage()
+#print(num)
+
+account_sid = ''
+auth_token = ''
+client = Client(account_sid, auth_token)
+
+message = client.messages.create(
+    from_='number_provided_by_third_party_API',
+    to='+91xxxxxxxxxx', #your_registered_number
+    body="hello"
+)
+print("succesfully sent msg")

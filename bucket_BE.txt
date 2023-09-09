@@ -1,0 +1,21 @@
+#!/usr/bin/python3
+
+print("Content-type: text/html")
+print()
+
+import boto3
+import cgi
+
+data = cgi.FieldStorage()
+name=data.getvalue("b")
+
+session=boto3.Session(aws_access_key_id='', aws_secret_access_key='', region_name='ap-south-1')
+client=session.client("s3")
+response = client.create_bucket(
+    ACL='private',
+    Bucket=name,
+    CreateBucketConfiguration={
+        'LocationConstraint': 'ap-south-1'}
+)
+
+print("done")
